@@ -1,0 +1,130 @@
+.clockContainer {
+  width: 200px;
+  aspect-ratio: 1;
+  border: 1px solid gray;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border-radius: 100%;
+
+  .center {
+    background-color: #000;
+    position: absolute;
+    left: calc(50% - 7.5px);
+    top: calc(50% - 7.5px);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    z-index: 20;
+  }
+  .hourArrow {
+    width: 8px;
+    height: 51px;
+    background-color: #000;
+    transform-origin: bottom center;
+    border-radius: 4px;
+    position: absolute;
+    top: 47px;
+    left: 96px;
+    z-index: 10;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    transform: rotate(360deg);
+  }
+  .minuteArrow {
+    width: 5px;
+    height: 60px;
+    background-color: gray;
+    transform-origin: bottom center;
+    border-radius: 4px;
+    position: absolute;
+    top: 40px;
+    left: 98px;
+    z-index: 9;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    transform: rotate(90deg);
+  }
+  .secondArrow {
+    width: 2px;
+    height: 70px;
+    background-color: rgb(0, 213, 255);
+    transform-origin: bottom center;
+    border-radius: 4px;
+    position: absolute;
+    top: 30px;
+    left: 99px;
+    transition: all 0.06s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    z-index: 8;
+    transform: rotate(360deg);
+  }
+  .clockFace {
+    .hourIndex {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 10px;
+      color: rgb(0, 0, 0);
+    }
+    .hourIndex:nth-child(1) {
+      right: 22%;
+      top: 6.5%;
+    }
+    .hourIndex:nth-child(2) {
+      right: 6%;
+      top: 25%;
+    }
+    .hourIndex:nth-child(3) {
+      right: 1%;
+      top: calc(50% - 10px);
+      color: rgb(0, 0, 0);
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .hourIndex:nth-child(4) {
+      right: 6%;
+      top: 69%;
+    }
+    .hourIndex:nth-child(5) {
+      right: 22%;
+      top: 84%;
+    }
+    .hourIndex:nth-child(6) {
+      right: calc(50% - 10px);
+      top: calc(99% - 20px);
+      color: rgb(0, 0, 0);
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .hourIndex:nth-child(7) {
+      left: 22%;
+      top: 84%;
+    }
+    .hourIndex:nth-child(8) {
+      left: 6%;
+      top: 69%;
+    }
+    .hourIndex:nth-child(9) {
+      left: 1%;
+      top: calc(50% - 10px);
+      color: rgb(0, 0, 0);
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .hourIndex:nth-child(10) {
+      left: 6%;
+      top: 25%;
+    }
+    .hourIndex:nth-child(11) {
+      left: 22%;
+      top: 6.5%;
+    }
+    .hourIndex:nth-child(12) {
+      right: calc(50% - 10px);
+      top: 1%;
+      color: rgb(0, 0, 0);
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}
