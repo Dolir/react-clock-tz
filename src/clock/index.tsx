@@ -16,15 +16,19 @@ type ArrowTypes = "hour" | "minute" | "second"
 type ArrowRotationsType = {
   [key in ArrowTypes]: null | number
 }
-export const Clock = () => {
+type ClockProps = {
+  defaultDate: Date
+}
+export const Clock = ({ defaultDate }: ClockProps) => {
   const [arrowRotations, setArrowRotations] = useState<ArrowRotationsType>({
     hour: null,
     minute: null,
     second: null
   })
   useEffect(() => {
+    const newDate = new Date(defaultDate)
     const setDate = () => {
-      const today = new Date()
+      const today = newDate
 
       const seconds = today.getSeconds()
       const second = (seconds / 60) * 360 + 360
@@ -33,9 +37,11 @@ export const Clock = () => {
       const hours = today.getHours()
       const hour = (hours / 12) * 360
       setArrowRotations({ second, minute, hour })
+      newDate.setSeconds(newDate.getSeconds() + 1)
     }
     setInterval(setDate, 1000)
-  }, [])
+  }, [defaultDate])
+
   const isMounting = !Object.values(arrowRotations).some(Boolean)
   if (isMounting) return <div>Mounting the clock</div>
   return (
